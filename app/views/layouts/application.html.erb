@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TestApp</title>
+    <title>MyMate</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -14,7 +14,7 @@
   <body>
     <header>
       <div class="header-logo">
-        <%=link_to("TweetApp","/")%>
+        <%=link_to("MyMate","/")%>
       </div>
       <ul class="header-menus">
         <% if @current_user%>
@@ -35,7 +35,7 @@
           </li>
         <% else %>
           <li>
-            <%=link_to("TweetAppとは","/about")%>
+            <%=link_to("MyMateとは","/about")%>
           </li>
           <li>
             <%=link_to("新規登録","/signup")%>
