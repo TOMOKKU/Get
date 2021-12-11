@@ -11,6 +11,12 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
+  def search
+    @users = User.search(params[:keyword])
+    @keyword = params[:keyword]
+    render("/users/index")
+  end
+
   def new
     @user = User.new
   end

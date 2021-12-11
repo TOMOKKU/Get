@@ -13,6 +13,12 @@ class PostsController < ApplicationController
     @likes_count = Like.where(post_id: @post.id).count
   end
 
+  def search
+    @posts = Post.search(params[:keyword])
+    @keyword = params[:keyword]
+    render("posts/index")
+  end
+
   def new
     @post = Post.new
   end

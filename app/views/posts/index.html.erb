@@ -1,4 +1,15 @@
 <div class="main posts-index">
+  <div class="search">
+    <%= form_with url: search_posts_path, model: :get, local: :true do |form| %>
+      <%= form.text_field :keyword, value: @keyword %>
+      <%= form.submit "serch" %>
+    <% end %>
+  </div>
+  <div class="post-list">
+    <% @posts.each do |post| %>
+      <%= post.content %>
+    <% end %>
+  </div>
   <div class="container">
     <% @posts.each do |post| %>
       <div class="posts-index-item">

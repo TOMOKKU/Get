@@ -6,4 +6,7 @@ class User < ApplicationRecord
   def posts
     return Post.where(user_id:self.id)
   end
+  def self.search(keyword)
+    where(["name like ?","%#{keyword}%"])
+  end
 end

@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   post "login" => "users#login"
   post "logout" => "users#logout"
 
+  get "search" => "users#search"
+  get "posts/search" => "posts#search"
+
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
 
