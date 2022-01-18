@@ -1,8 +1,8 @@
 <div class="main posts-index">
   <div class="search">
-    <%= form_with url: search_posts_path, model: :get, local: :true do |form| %>
+    <%= form_with url: search_posts_path, method: :get, local: :true do |form| %>
       <%= form.text_field :keyword, value: @keyword %>
-      <%= form.submit "serch" %>
+      <%= form.submit "search" %>
     <% end %>
   </div>
   <div class="post-list">

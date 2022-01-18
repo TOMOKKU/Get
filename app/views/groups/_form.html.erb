@@ -1,0 +1,37 @@
+<%= form_with model: @group do |f|%>
+  <% if @group.errors.any?%>
+    <div class="group-form-errors">
+      <h2><%= "#{@group.errors.full_messages.count}件のエラーが発生しました"%></h2>
+      <ul>
+        <% @group.errors.full_messages.each do |message|%>
+          <li><%= messages%></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="chat-group-form_field">
+    <div class="chat-group-form_field-left">
+      <%= f.label :name, class: "chat-group-form_label"%>
+    </div>
+    <div class="chat-group-form_field-right">
+      <%= f.text_field :name, class: "chat_group_name chat-group-form_input", placeholder: "グループ名を入力してください"%>
+    </div>
+  </div>
+  <div class="chat-group-form_field.clearfix">
+  </div>
+  <div class="chat-group-form_field.clearfix">
+    <div class="chat-group-form_field-left">
+      <label class="chat-group-form_label">チャットメンバー</label>
+    </div>
+    <div class="chat-group-form_field-right">
+      <%= f.collection_chack_boxes :user_ids, User.all, :id, :name%>
+    </div>
+  </div>
+  <div class="chat-group-form_field.clearfix">
+    <div class="chat-group-form_field-left">
+    </div>
+    <div class="chat-group-form_field-right">
+      <%= f.submit class: "chat-group-form_action-btn"%>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,41 @@
+<div class="chat-group-form">
+  <h1>新規チャットグループ</h1>
+  <%= render partial: "form", locals: {group: @group }%>
+  <%= form_with model: @group do |f| %>
+    <% if @group.errors.any? %>
+      <div class="chat-group-form_errors">
+        <h2><%= "#{@groups.errors.full_messages.count}件のエラーが発生しました" %></h2>
+        <ul>
+          <% @group.errors_messages.each do |message| %>
+            <li><%= messages %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="chat-group-form_field">
+      <div class="chat-group-form_field--left">
+        <%= f.label :name, "グループ名", class: "chat-group-form_label"%>
+      </div>
+      <div class="chat-group-form_field--right">
+        <%= f.text_field :name, class: "chat_groups_name chat-group-form__input",placeholder: "グループ名を入力してください"%>
+      </div>
+    </div>
+    <div class="chat-group-form_field.clearfix">
+    </div>
+    <div class="chat-group-form_field.clearfix">
+      <div class="chat-group-form_field--left">
+        <%= f.label "チャットメンバー", class: "chat-group-form_label"%>
+      </div>
+      <div class="chat-group-form_field--right">
+        <%= f.collection_chack_boxes :user_ids, User.all, :id, :name%>
+      </div>
+    </div>
+    <div class="chat-group-form_field.clearfix">
+      <div class="chat-group-form_field--left">
+      </div>
+      <div class="chat-group-form_field--right">
+        <%= f.submit class: "chat-group-form_action-btn"%>
+      </div>
+    </div>
+  <% end %>
+</div>

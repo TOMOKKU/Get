@@ -1,0 +1,31 @@
+<div class="side_bar">
+  <header>
+    <h3 class="header_name"><%= current_user.name%></h3>
+    <ul class="header_list">
+      <li class="list">
+        <%= link_to new_group_path do%>
+          <%= icon("fas", "pen-square", class: "icon")%>
+        <% end %>
+      </li>
+      <li class="list">
+        <%= link_to edit_user_path do%>
+          <%= icon("fas", "cog", class: "icon")%>
+        <% end %>
+      </li>
+    </ul>
+    <div class="groups">
+      <% @current_user.groups.each do |group|%>
+        <div class="group">
+          <%= form_with url: do |form|%>
+            <div class="group_name">
+              <%= group.name%>
+            </div>
+            <div class="group_message">
+              <p>メッセージはまだありません</p>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </header>
+</div>
